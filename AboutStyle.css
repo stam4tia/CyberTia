@@ -1,0 +1,546 @@
+body {
+  font-family: Verdana;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background: #161324;
+  background: radial-gradient(#241f3a, #161324);  overflow-x: hidden;
+
+}
+
+
+
+
+
+/* js fade load in styling */
+
+.content {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+}
+
+.content.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+
+
+/* light vs dark modes */ 
+
+body.light-mode {
+  background: #ffffff;
+  background: radial-gradient(#ded8fa, #ffffff);  overflow-x: hidden;
+}
+
+body.dark-mode {
+  background: #161324;
+  background: radial-gradient(#241f3a, #161324);  overflow-x: hidden;
+}
+
+
+.toggle-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1001; /* ensures the toggle button is above other elements */
+
+}
+
+#toggle-icon {
+  width: 65px;
+  height: 65px;
+  transition: transform 0.3s, filter 0.3s;
+
+}
+
+#toggle-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+h2 {
+  font-size: 35px;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* make the background is behind the body content */
+}
+
+.background-gif {
+  width: 100%;
+  height: 100%;
+  background: url('starry2.gif') no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.05;
+}
+
+header {
+  padding: 15px;
+  position: relative;
+  top: 0px;
+  background-color: rgba(255, 40, 187, 0.388);
+}
+
+.header img {
+  height: 60px;
+  width: 300px;
+  transition: transform 0.8s ease; 
+}
+
+
+.header img:hover {
+  filter: brightness(70%);
+  transform: scale(0.90);
+  transition: transform 0.4s ease;
+}
+
+
+
+.container {
+  max-width: 800px; /*  maximum width  */
+  width: 100%; /* makes the container take up the available width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto; /* auto margin horizontally to center the container */
+  border-radius: 10px;
+  background-color: rgba(255, 83, 189, 0.732);
+  padding: 20px;
+}
+
+.image-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  /* filter: brightness(80%); Lower brightness */
+  position: relative;
+}
+
+.image-container img {
+  position: absolute; 
+  width: 100%; 
+  transition: opacity 0.5s ease; 
+}
+
+.image-container img.new-image {
+  opacity: 0; 
+}
+
+.image-container:hover img.old-image {
+  opacity: 0; 
+}
+
+.image-container:hover img.new-image {
+  opacity: 1; 
+}
+
+.text-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.text {
+  padding: 0 20px; 
+  color: #ffffff;
+}
+
+.image {
+  width: 280px;
+  margin-right: 20px; 
+  border-radius: 10px; 
+}
+
+.navigation {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.navigation img {
+  width: 100px; /* increase icon size */
+  margin-left: 30px; /* adjust spacing between icons */
+  cursor: pointer;
+  transition: transform 0.7s ease; 
+}
+
+.navigation img:hover {
+  filter: brightness(70%);
+  transform: scale(0.90);
+  transition: transform 0.3s ease;
+}
+
+.about-header {
+  text-align: center;
+  color: rgb(255, 83, 189);
+  font-family:  Verdana;
+  font-size: 40px;
+  margin: 10px; 
+}
+
+
+
+.skills-container {
+  max-width: 800px; 
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto; 
+  border-radius: 10px;
+  background-color: rgba(255, 83, 189, 0.732);
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  padding: 10px;
+}
+
+table img {
+  width: 65px; /* set smaller width for table images */
+  height: auto;
+  margin-right: 15px; /* add wider space between table images */
+  margin-left: 15px; 
+  margin-top: 8px;
+  transition: transform 0.8s ease; 
+}
+
+table img:hover {
+  transform: scale(1.5); 
+}
+
+.table-caption {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #fefefe;
+}
+
+.resume-button {
+  display: inline-block;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #9e0351; 
+  color: #fff; 
+  text-decoration: none;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+}
+
+.resume-button:hover {
+  background-color: #ff1493; 
+}
+
+
+
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  z-index: 99;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 40, 187, 0.388);
+  color: white;
+  cursor: pointer;
+  width: 60px; 
+  height: 60px;
+  border-radius: 50%; 
+  text-align: center; 
+  line-height: 60px; 
+}
+
+#myBtn:hover {
+  background-color: #ff2cce94;
+}
+
+
+
+
+
+
+
+
+
+footer {
+  padding: 15px;
+  text-align: center;
+  margin-top: auto;
+  background-color:rgb(255, 40, 187, 0.388);
+}
+
+.footer-text {
+  color: #ffffff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: rgb(0, 200, 255) !important; /* force change color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 700px) {
+    header {
+        text-align: center; 
+    }
+
+    h1 {
+        margin: 50px auto 95px; 
+        text-align: center; 
+
+    }
+
+    .header-image {
+        margin: 50px auto 90px; 
+        text-align: center; 
+    }
+
+    .navigation {
+        position: absolute;
+        top: calc(140px); 
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        width: 100%;
+        padding: 0 10px; 
+        box-sizing: border-box;
+    }
+
+    .navigation img {
+        width: 80px; 
+        margin-left: 20px; 
+    }
+
+    
+
+    .container {
+        max-width: 700px;
+        width: 80%;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto;
+        border-radius: 10px;
+        padding: 20px;
+        gap: 150px; 
+    }
+
+
+    
+    .skills-container {
+      max-width: 700px;
+      width: 80%;
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+      border-radius: 10px;
+      padding: 20px;
+      gap: 150px;
+    }
+    
+    table {
+    
+      width: auto; 
+      margin: 0 auto; 
+      border-collapse: separate; 
+      border-spacing: 5px; 
+
+    }
+    
+    table td {
+      padding: 0;
+    }
+    
+    table img {
+      width: 40px;
+      height: 40px; 
+      object-fit: cover; 
+      display: block;
+      margin: 0 auto;
+    }
+    
+
+    .text-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 1; 
+        margin-bottom: 120px; 
+    }
+
+    .image-container {
+        width: 70%; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 2; 
+        position: relative; 
+    }
+
+    .image-container img {
+        position: absolute; 
+        width: 100%; 
+        transition: opacity 0.5s ease; 
+        margin-bottom: 320px; 
+        margin-left: 20px; 
+
+    }
+
+    .image-container img.new-image {
+        opacity: 0; 
+    }
+
+    .image-container:hover img.old-image {
+        opacity: 0; 
+    }
+
+    .image-container:hover img.new-image {
+        opacity: 1; 
+    }
+
+    .text {
+        padding: 0 20px;
+        color: #ffffff;
+        text-align: center; 
+    }
+
+  
+  
+
+
+
+    .resume-button {
+      display: flex;
+        position: absolute; 
+        margin-bottom: -10px;
+        margin-right: 50px; 
+        background-color: #d10069;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        order: 3; 
+        justify-content: center; 
+        align-items: center;
+    
+    }
+
+    .resume-button:hover {
+        background-color: #ff1493;
+    }
+
+
+    
+    footer {
+        padding: 15px;
+        text-align: center;
+        margin-top: auto;
+    }
+
+    .footer-text {
+        color: #ffffff;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    footer a {
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: rgb(0, 200, 255) !important;
+    }
+}

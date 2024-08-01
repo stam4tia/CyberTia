@@ -1,0 +1,427 @@
+body {
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    background: #161324;
+    background: radial-gradient(#241f3a, #161324);  overflow-x: hidden;
+  
+  }
+
+
+  /* js fade load in styling */
+
+  .content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.3s ease-out, transform 1.3s ease-out;
+  }
+  
+  .content.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  /* light vs dark modes */ 
+
+  body.light-mode {
+    background: #ffffff;
+    background: radial-gradient(#ded8fa, #ffffff);  overflow-x: hidden;
+  }
+  
+  body.dark-mode {
+    background: #161324;
+    background: radial-gradient(#241f3a, #161324);  overflow-x: hidden;
+  }
+  
+  body.light-mode .content-title {
+    color: #77678b;
+  }
+  
+  body.dark-mode .content-title {
+    color: #eeb2e6;
+  }
+  
+  
+
+
+  
+  .toggle-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1001; /* ensures the toggle button is above other elements */
+
+  }
+  
+  #toggle-icon {
+    width: 65px;
+    height: 65px;
+    transition: transform 0.3s, filter 0.3s;
+  
+  }
+  
+  #toggle-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+  
+ 
+  
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* make the background is behind the body content */
+  }
+  
+  .background-gif {
+    width: 100%;
+    height: 100%;
+    background: url('starry2.gif') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.05;
+  }
+
+
+
+
+  header {
+    padding: 15px;
+    position: relative;
+    top: 0px;
+    background-color: rgba(255, 40, 187, 0.388);
+  }
+  
+  .header img {
+    height: 60px;
+    width: 300px;
+    transition: transform 0.8s ease; /* Add transition */
+  
+  }
+  
+  
+  .header img:hover {
+    filter: brightness(70%);
+    transform: scale(0.90);
+    transition: transform 0.4s ease;
+  }
+  
+  
+
+  
+  
+    .navigation {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navigation img {
+    width: 100px;
+    margin-left: 30px; 
+    cursor: pointer;
+    transition: transform 0.7s ease; 
+  }
+  
+  .navigation img:hover {
+    filter: brightness(70%);
+    transform: scale(0.90);
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-header {
+    text-align: center;
+    color: rgb(255, 83, 189);
+    font-family: Verdana;
+    font-size: 40px;
+    margin: 10px; 
+  }
+  
+
+  p, h2, h3 {
+    color: white; 
+  }
+  
+  h2 {
+    font-size: 27px;
+  }
+
+  p {
+    font-size: 18px;
+
+  }
+
+
+  .container {
+    max-width: 800px; 
+    width: 100%; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    margin: 30px auto; 
+    border-radius: 10px;
+    background-color: rgba(255, 83, 189, 0.732);
+    padding: 20px;
+}
+
+/* reduce space between h2 and h3 elements */
+.container h2,
+.container h3 {
+    margin-top: 0;
+    margin-bottom: 10px; 
+}
+
+.image-row {
+  display: flex; /* display images in a row */
+  gap: 20px; 
+  justify-content: center; 
+  flex-wrap: wrap; 
+}
+
+.image-container {
+  width: 150px; /* diameter of the circle */
+  height: 150px; 
+  overflow: hidden; /* hide any overflow of image outside the circle */
+  border-radius: 50%; /* make the container a circle */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0; 
+  transition: transform 0.3s ease; 
+}
+
+.image-container:hover {
+  transform: translateY(10px); 
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  transition: transform 0.3s ease; 
+}
+
+
+
+
+
+
+  
+  
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 40, 187, 0.388);
+    color: white;
+    cursor: pointer;
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; /* circle */
+    text-align: center; 
+    line-height: 60px; 
+  }
+  
+  #myBtn:hover {
+    background-color: #ff2cce94;
+  }
+  
+
+
+  .content-title {
+    font-family: Verdana;
+    font-size: 30px; 
+    color: #eeb2e6;
+    margin-bottom: 2px; 
+    transition: color 0.3s ease; 
+    text-align: center; 
+    text-decoration: underline; 
+  }
+
+  
+  
+  .slider-container {
+    overflow: hidden;
+    width: 100%; 
+    height: 400px; 
+    position: relative;
+  }
+  
+  .slider {
+    display: flex;
+    width: calc(300px * 3); /* adjust based on the number of images */
+    animation: slide 20s linear infinite;
+  }
+  
+  .slider img {
+    width: 300px; /* makes images larger */
+    height: 300px; /* make images are square */
+    object-fit: cover; /* images cover the area without distortion */
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+    
+
+  
+
+  
+  
+  
+  footer {
+    padding: 15px;
+    text-align: center;
+    margin-top: auto;
+    background-color:rgb(255, 40, 187, 0.388);
+  }
+  
+  .footer-text {
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  footer a {
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: rgb(0, 200, 255) !important; 
+  }
+  
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @media only screen and (max-width: 700px) {
+      header {
+          text-align: center; 
+      }
+  
+      h1 {
+          margin: 50px auto 95px; 
+          text-align: center;
+  
+      }
+  
+  
+      .navigation {
+          position: absolute;
+          top: calc(140px); 
+          display: flex;
+          align-items: center;
+          justify-content: center; 
+          width: 100%;
+          padding: 0 10px; 
+          box-sizing: border-box; 
+      }
+  
+      .navigation img {
+          width: 80px; 
+          margin-left: 20px; 
+      }
+  
+
+  
+  
+   
+     
+
+      .table-caption {
+          font-size: 30px; 
+          padding-bottom: 50px;
+      }
+  
+
+      
+
+      .container {
+        max-width: 700px;
+        width: 80%;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+      .image-row {
+        gap: 20px; 
+      }
+    
+      .image-container {
+        width: 100px; 
+        height: 100px; 
+      }
+    
+
+
+      
+      footer {
+          padding: 15px;
+          text-align: center;
+          margin-top: auto;
+      }
+  
+      .footer-text {
+          color: #ffffff;
+          font-family: 'Press Start 2P', cursive;
+          font-size: 12px;
+          text-align: center;
+      }
+  
+      footer a {
+          text-decoration: none;
+      }
+  
+      footer a:hover {
+          color: rgb(0, 200, 255) !important;
+      }
+  }
+  
