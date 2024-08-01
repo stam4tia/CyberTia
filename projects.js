@@ -61,28 +61,79 @@ contents.forEach(content => {
 });
 
 
+//<--- old tab event listeners --->
 
+// function showTab(tabId, event = null) {
+//   const contents = document.querySelectorAll('.tab-content');
+//   const buttons = document.querySelectorAll('.tab-button');
 
-function showTab(tabId, event = null) {
-  const contents = document.querySelectorAll('.tab-content');
-  const buttons = document.querySelectorAll('.tab-button');
+//   // hide all tab contents
+//   contents.forEach(content => content.style.display = 'none');
 
-  // hide all tab contents
-  contents.forEach(content => content.style.display = 'none');
+//   // remove the active class from all buttons
+//   buttons.forEach(button => button.classList.remove('active'));
 
-  // remove the active class from all buttons
-  buttons.forEach(button => button.classList.remove('active'));
+//   // show the selected tab content
+//   document.getElementById(tabId).style.display = 'block';
 
-  // show the selected tab content
-  document.getElementById(tabId).style.display = 'block';
+//   // add the active class to the clicked button
+//   if (event) {
+//     event.target.classList.add('active');
+//   } else {
+//     document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
+//   }
+// }
 
-  // add the active class to the clicked button
-  if (event) {
-    event.target.classList.add('active');
-  } else {
-    document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
+document.addEventListener('DOMContentLoaded', () => {
+  const defaultMessage = document.getElementById('default-message');
+  const projectsContainer = document.getElementById('projects-container');
+  const tabContents = document.querySelectorAll('.tab-content');
+  const tabButtons = document.querySelectorAll('.tab-button');
+
+  // initialize tabs
+  function initializeTabs() {
+      // show default message and hide all tab contents initially
+      defaultMessage.style.display = 'block';
+      projectsContainer.style.display = 'block'; // Make sure the container is visible initially
+      tabContents.forEach(content => content.style.display = 'none');
+
+      // set up event listeners for tab buttons
+      tabButtons.forEach(button => {
+          button.addEventListener('click', (event) => {
+              showTab(event.target.dataset.tab, event);
+          });
+      });
   }
-}
+
+  // function to show tab content
+  function showTab(tabId, event) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      // hide all tab contents
+      contents.forEach(content => content.style.display = 'none');
+
+      // remove the active class from all buttons
+      buttons.forEach(button => button.classList.remove('active'));
+
+      // show the selected tab content
+      const selectedContent = document.getElementById(tabId);
+      if (selectedContent) {
+          selectedContent.style.display = 'block';
+          defaultMessage.style.display = 'none'; // hide default message
+          projectsContainer.style.display = 'none'; // hide the container
+      }
+
+      // add the active class to the clicked button
+      if (event) {
+          event.target.classList.add('active');
+      }
+  }
+
+  // initialize tabs on page load
+  initializeTabs();
+});
+
 
 
 function enlargeImage(button) {

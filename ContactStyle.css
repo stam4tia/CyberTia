@@ -225,28 +225,26 @@ body {
 
   
   
-  #myBtn {
-    display: none;
-    position: fixed;
-    bottom: 100px;
-    right: 25px;
-    z-index: 99;
-    font-size: 30px;
-    border: none;
-    outline: none;
-    background-color: rgba(255, 40, 187, 0.388);
-    color: white;
-    cursor: pointer;
-    width: 60px; 
-    height: 60px; 
-    border-radius: 50%; /* circle */
-    text-align: center; 
-    line-height: 60px; 
-  }
-  
-  #myBtn:hover {
-    background-color: #ff2cce94;
-  }
+#myBtn {
+  display: none; 
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  z-index: 99;
+  width: 60px; 
+  height: 60px; 
+  cursor: pointer;
+  border: none; 
+  transition: filter 0.3s ease; 
+  filter: brightness(2); 
+
+}
+
+#myBtn:hover {
+  filter: brightness(1.3); 
+}
+
+
   
 
 

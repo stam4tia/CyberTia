@@ -9,7 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-  <button onclick="topFunction()" id="myBtn" title="Go to top">    🡩   </button>
+
+  <img src="up_arrow.png" alt="Go to top" id="myBtn" onclick="topFunction()" title="Go to top">
+
+
   <div class="toggle-container">
     <img id="toggle-icon" src="light-icon.png" alt="Toggle Icon">
   </div>
@@ -41,14 +44,36 @@
   <br>
 
   <div class="tabs">
-    <button class="tab-button" data-tab="websites" onclick="showTab('websites', event)">Websites</button>
+
+    <!-- original tab layout -->
+
+    <!-- <button class="tab-button" data-tab="websites" onclick="showTab('websites', event)">Websites</button>
     <button class="tab-button" data-tab="games" onclick="showTab('games', event)">Games</button>
     <button class="tab-button" data-tab="illustrations" onclick="showTab('illustrations', event)">Illustrations</button>
     <button class="tab-button" data-tab="animations" onclick="showTab('animations', event)">Animations</button>
     <button class="tab-button" data-tab="ui-ux" onclick="showTab('ui-ux', event)">UI/UX</button>
     <button class="tab-button" data-tab="cyber-security" onclick="showTab('cyber-security', event)">Cyber Security</button>
+    <button class="tab-button" data-tab="ankhlave" onclick="showTab('ankhlave', event)">AnkhLave</button> -->
+
+    <button class="tab-button" data-tab="ui-ux" onclick="showTab('ui-ux', event)">UI/UX</button>
     <button class="tab-button" data-tab="ankhlave" onclick="showTab('ankhlave', event)">AnkhLave</button>
+    <button class="tab-button" data-tab="games" onclick="showTab('games', event)">Games</button>
+    <button class="tab-button" data-tab="animations" onclick="showTab('animations', event)">Animations</button>
+    <button class="tab-button" data-tab="illustrations" onclick="showTab('illustrations', event)">Illustrations</button>
+    <button class="tab-button" data-tab="websites" onclick="showTab('websites', event)">Websites</button>
+    <button class="tab-button" data-tab="cyber-security" onclick="showTab('cyber-security', event)">Cyber Security</button>
+
   </div>
+
+
+  <section class="content">
+  <div id="projects-container" class="container">
+    <p id="default-message"><strong>Welcome to my projects page. Feel free to view any of my projects by clicking through the tabs above!
+    </strong></p>
+</div>
+</section>
+
+
 
 
   <div id="websites" class="tab-content">
@@ -75,6 +100,7 @@
       </div>
       </section>
     <br><br>
+
 
     <section class="content">
     <a href="https://stam4tia.github.io/Pies-for-All/index.html" target="_blank" class="link">
@@ -549,6 +575,17 @@
     <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTnlVk9IrzFoC7XqGSyG4moQVAmKoTLWXPJY2Q--V-DBObWfS5NpspB53VrGvUyyIhK77qeQgmSfCZD/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
   </section>
+
+<section class="content">
+  <div class="description-box">
+      <p>“ArtBlock” is a passion UI/UX project I undertook during a period of creative block. I often walk around and recently noticed a lot of street art, including stickers and murals. I was also really into “Pokémon Go” at the time and liked the idea of PokéStops. I thought, why not create an app dedicated to the world of street art, combined with a scavenger hunt? The name “ArtBlock” reflects both the literal context of street art (since another word for street is "block") and the idea of redefining the negative connotations of having an art block by embracing it through exploring a world of art. <br>
+
+        One of the first major problems I considered was the potential for vandalism, as it is a crime. To address this, I came up with the idea of “VR” art, where users can create and view art in virtual reality rather than in the real world. This would allow people to engage with art without committing vandalism. As technology advances, VR headsets and glasses are becoming more common, making this concept increasingly feasible. <br>
+        
+        The “ArtBlock” standards manual was created in Adobe InDesign, with original assets, logos, and wireframes designed in Illustrator. The “ArtBlock” prototype app was developed in Adobe XD.</p>
+  </div>
+  </section>
+
   </div>
 
 
